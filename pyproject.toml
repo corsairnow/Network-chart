@@ -1,0 +1,32 @@
+[build-system]
+requires = ["hatchling>=1.21"]
+build-backend = "hatchling.build"
+
+[project]
+name = "amp-sql-gen"
+version = "0.1.1"
+description = "FastAPI NL→SQL compiler using Ollama models (compile-only, schema-aware)"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "fastapi>=0.112",
+  "uvicorn>=0.30",
+  "httpx>=0.27",
+  "pydantic>=2.7",
+  "pydantic-settings>=2.5",
+  "pyyaml>=6.0",
+  "sqlglot>=25.17",
+]
+
+[project.optional-dependencies]
+dev = ["ruff>=0.5", "pytest>=8"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.hatch.version]
+path = "amp_sql_gen/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["amp_sql_gen"]
