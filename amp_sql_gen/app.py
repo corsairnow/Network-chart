@@ -29,7 +29,7 @@ class CompileResponse(BaseModel):
 @app.get("/healthz")
 async def healthz():
     schema.reload_if_changed()
-    print("hello123")
+    print("123")
     return {"status": "ok", "service": "Amp_SQL_Gen", "version": __version__}
 
 @app.get("/version")
